@@ -5,17 +5,95 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --highlight: #3b82f6;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --highlight: #60a5fa;
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .shadow-card {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .shadow-card-dark {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-animated-gradient {
+  background: linear-gradient(to bottom right, #f3f4f6, white, #e5e7eb);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease-in-out infinite;
+}
+
+.dark .bg-animated-gradient {
+  background: linear-gradient(to bottom right, #111827, black, #1f2937);
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease-in-out infinite;
+}
+
+.bg-blur-gradient {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(209, 213, 219, 0.1),
+    rgba(107, 114, 128, 0.1)
+  );
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.dark .bg-blur-gradient {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(17, 24, 39, 0.1),
+    rgba(0, 0, 0, 0.1)
+  );
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.button-primary {
+  background-color: var(--highlight);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.button-primary:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
 }
