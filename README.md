@@ -48,6 +48,11 @@ This is a full-stack movie application that allows users to search for movies, v
      ```bash
      npm install
      ```
+3. Create a `.env` file in the frontend directory and add the following environment variable:
+     ```bash
+     OMDB_API_KEY=your_api_key
+     ```
+     Replace `your_api_key` with your API key from the [OMDB API](https://www.omdbapi.com/apikey.aspx).
 3. Run the development server:
      ```bash
      npm run dev
